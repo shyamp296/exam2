@@ -4,9 +4,23 @@ import './App.css';
 
 function App() {
   return (
-   <>
-   <Registration/>
-   </>
+    <>
+      <Registration />
+      {/* <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  type={inputType}
+                  name="dob"
+                  label="Date of Birth"
+                  onFocus={() => setInputType("date")}
+                  onBlur={() => setInputType("text")}
+                  value={formData.dob}
+                  onChange={handleInputChange}
+                  autoComplete="dob"
+                />
+              </Grid> */}
+    </>
   );
 }
 
