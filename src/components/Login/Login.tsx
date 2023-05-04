@@ -20,6 +20,8 @@ import {
 import { useState } from "react";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 interface RegistrationFormData {
   email: string;
@@ -33,6 +35,8 @@ interface Error {
 
 const theme = createTheme();
 export default function Registration() {
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<RegistrationFormData>({
     email: "",
     password: "",
@@ -99,17 +103,17 @@ export default function Registration() {
       const savedData = await response.json();
       console.log(savedData);
 
-      //   toast.success(savedData.message, {
-      //     position: "top-right",
-      //     autoClose: 2500,
-      //     hideProgressBar: false,
-      //     closeOnClick: true,
-      //     pauseOnHover: true,
-      //     draggable: true,
-      //     progress: undefined,
-      //     theme: "light",
-      //   });
-      //   navigate("/registration");
+      toast.success(savedData.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+        navigate("/dashboard");
     } else {
       setErrors(errors);
       console.log("ysdftjusdgtyfg", formData);
@@ -143,7 +147,7 @@ export default function Registration() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} >
+              <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
@@ -205,7 +209,7 @@ export default function Registration() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/" variant="body2">
+                <Link href="/registration" variant="body2">
                   do not have account create One? Sign Up
                 </Link>
               </Grid>

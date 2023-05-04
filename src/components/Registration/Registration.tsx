@@ -376,11 +376,13 @@ export default function Registration() {
         "🚀 ~ file: Signup.js:127 ~ signupSuccess ~ inputData:",
         Data
       );
-      const response = await fetch("http://localhost:3002/signup", {
+      const response = await fetch("http://localhost:4001/register", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(Data),
       });
+
+      
       return response.json();
     } else {
       setErrors(errors);
@@ -414,6 +416,7 @@ export default function Registration() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
+              {/* Firstname */}
               <Grid item xs={12} sm={4}>
                 <TextField
                   autoComplete="given-name"
@@ -429,6 +432,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.firstname}</div>
                 )}
               </Grid>
+              {/* Lastname */}
               <Grid item xs={12} sm={4}>
                 <TextField
                   autoComplete="family-name"
@@ -444,6 +448,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.lastname}</div>
                 )}
               </Grid>
+              {/* Username  */}
               <Grid item xs={12} sm={4}>
                 <TextField
                   autoComplete="given-name"
@@ -459,6 +464,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.username}</div>
                 )}
               </Grid>
+              {/* Email */}
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
@@ -474,6 +480,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.email}</div>
                 )}
               </Grid>
+              {/* Phone Number */}
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
@@ -490,6 +497,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.phoneNo}</div>
                 )}
               </Grid>
+              {/* Password */}
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth variant="outlined">
                   <InputLabel htmlFor="outlined-adornment-password">
@@ -519,6 +527,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.password}</div>
                 )}
               </Grid>
+              {/* Confirm Password */}
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth variant="outlined">
                   <InputLabel htmlFor="outlined-adornment-password">
@@ -549,6 +558,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.confirmPassword}</div>
                 )}
               </Grid>
+              {/* Dob */}
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
                   <FormLabel>Date of Birth:</FormLabel>
@@ -565,6 +575,7 @@ export default function Registration() {
                 </FormControl>
                 {errors.dob && <div style={{ color: "red" }}>{errors.dob}</div>}
               </Grid>
+              {/* Gender */}
               <Grid item xs={12} sm={6}>
                 <FormControl fullWidth>
                   <FormLabel id="demo-radio-buttons-group-label">
@@ -594,6 +605,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.gender}</div>
                 )}
               </Grid>
+              {/* country */}
               <Grid item xs={12} sm={4}>
                 <FormControl fullWidth>
                   <InputLabel id="Select-Country">
@@ -615,6 +627,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.country}</div>
                 )}
               </Grid>
+              {/* State */}
               <Grid item xs={12} sm={4}>
                 <FormControl fullWidth>
                   <InputLabel id="Select-State">--Select State--</InputLabel>
@@ -638,6 +651,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.state}</div>
                 )}
               </Grid>
+              {/* City */}
               <Grid item xs={12} sm={4}>
                 <FormControl fullWidth>
                   <InputLabel id="Select-City">--Select City--</InputLabel>
@@ -661,7 +675,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.city}</div>
                 )}
               </Grid>
-
+              {/* Programming Skill */}
               <Grid item xs={12} sm={4}>
                 <Autocomplete
                   fullWidth
@@ -682,6 +696,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.skills}</div>
                 )}
               </Grid>
+              {/* Qualification */}
               <Grid item xs={12} sm={8}>
                 <FormLabel>Qualification : </FormLabel>
                 <FormGroup row>
@@ -730,6 +745,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.qualifications}</div>
                 )}
               </Grid>
+              {/* Address */}
               <Grid item xs={12}>
                 <FormLabel>Address : </FormLabel>
                 <FormControl fullWidth>
@@ -747,6 +763,7 @@ export default function Registration() {
                   <div style={{ color: "red" }}>{errors.address}</div>
                 )}
               </Grid>
+              {/* Profile picture */}
               <Grid item xs={12}>
                 <FormLabel>Profile Picture : </FormLabel>
                 <TextField
